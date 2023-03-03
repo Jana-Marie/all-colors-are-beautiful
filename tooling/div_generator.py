@@ -6,24 +6,31 @@ import sys
 #	{name: "progress rainbow",  accent: ["#613915", "#000000", "#ffafc7", "#73d7ee", "#ffffff"], color: ["#e50000", "#ff8d00", "#ffee00", "#028121", "#004cff", "#770088"]},
 #	{name: "demisexual", accent: ["#000000"], color: ["#ffffff", "#6e0071", "#d3d3d3"]},
 #	{name: "poly", accent: ["#ffff00"], color: ["0000ff", "#ff0000", "#000000"]}
+#	{"name": "intersex", "color": ["#ffd800", "#7902aa"]},
 #}
 
 bar_flags = [
-	{"name": "trans", "color": ["#55cdfd", "#f6aab7", "#ffffff", "#f6aab7", "#55cdfd"]},
 	{"name": "classic rainbow",  "color": ["#e50000", "#ff8d00", "#ffee00", "#028121", "#004cff", "#770088"]},
+	{"name": "8-color rainbow", "color": ["#ff69b4", "#ff0000", "#ff8e00", "#ffff00", "#008e00", "#00c0c0", "#400098", "#8e008e"]},
+	{"name": "7-color rainbow", "color": ["#ff0000", "#ff8e00", "#ffff00", "#008e00", "#00c0c0", "#400098", "#8e008e"]},
+	{"name": "trans", "color": ["#55cdfd", "#f6aab7", "#ffffff", "#f6aab7", "#55cdfd"]},
+	{"name": "5-color lesbian", "color": ["#d62800", "#ff9b56", "#ffffff", "#d462a6", "#a40062"]},
+	{"name": "7-color lesbian", "color": ["#d52d00", "#ef7627", "#ff9a56", "#ffffff", "#d162a4", "#b55690", "#a30262"]},	
+	{"name": "pink lesbian", "color": ["#a40061", "#b75592", "#d063a6", "#ededeb", "#e4accf", "#c54e54", "#8a1e04"]},	
+	{"name": "nonbinary", "color": ["#fcf431", "#fcfcfc", "#9d59d2", "#282828"]},
 	{"name": "bisexual", "color": ["#d60270", "#9b4f96", "#0038a8"]},
 	{"name": "pansexual", "color": ["#ff1c8d", "#ffd700", "#1ab3ff"]},
-	{"name": "nonbinary", "color": ["#fcf431", "#fcfcfc", "#9d59d2", "#282828"]},
-	{"name": "lesbian", "color": ["#d62800", "#ff9b56", "#ffffff", "#d462a6", "#a40062"]},
 	{"name": "agender", "color": ["#000000", "#bababa", "#ffffff", "#baf484", "#ffffff", "#bababa", "#000000"]},
 	{"name": "asexual", "color": ["#000000", "#a4a4a4", "#ffffff", "#810081"]},
 	{"name": "genderqueer", "color": ["#b57fdd", "#ffffff", "#49821e"]},
 	{"name": "genderfluid", "color": ["#fe76a2", "#ffffff", "#bf12d7", "#000000", "#303cbe"]},
-	{"name": "intersex", "color": ["#ffd800", "#7902aa"]},
-	{"name": "aromantic", "color": ["#3ba740", "#a8d47a", "#ffffff", "#ababab", "#000000"]}
+	{"name": "bigender", "color": ["#c479a2", "#eda5cd", "#d5c7e8", "#ffffff", "#d5c7e8", "#9ac7e8", "#6d82d1"]},
+	{"name": "polysexual", "color": ["#f61cb9", "#07d569", "#1c92f6"]},
+	{"name": "aromantic", "color": ["#3ba740", "#a8d47a", "#ffffff", "#ababab", "#000000"]},
+	{"name": "gay men pride", "color": ["#078d70", "#26ceaa", "#99e8c2", "#ffffff", "#7bade3", "#5049cb", "#3e1a78"]}
 ]
 
-lineheight = ["", "25rem", "12.5rem", "8.33rem", "6.25rem", "5rem", "4.167rem", "3.57rem"]
+lineheight = ["", "25rem", "12.5rem", "8.33rem", "6.25rem", "5rem", "4.167rem", "3.57rem", "3.125rem"]
 
 if __name__ == '__main__':
 	for flag in bar_flags:
