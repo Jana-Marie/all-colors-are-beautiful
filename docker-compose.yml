@@ -11,7 +11,7 @@ services:
         restart: always
         labels:
           traefik.enable: true
-          traefik.port: 5049
+          traefik.port: 5033
           traefik.frontend.rule: "Host:acab.haj.gf"
           traefik.frontend.redirect.entryPoint: "https"
           traefik.docker.network: web
