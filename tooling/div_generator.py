@@ -2,12 +2,29 @@
 
 import sys
 
-#other_flags = {
-#	{name: "progress rainbow",  accent: ["#613915", "#000000", "#ffafc7", "#73d7ee", "#ffffff"], color: ["#e50000", "#ff8d00", "#ffee00", "#028121", "#004cff", "#770088"]},
-#	{name: "demisexual", accent: ["#000000"], color: ["#ffffff", "#6e0071", "#d3d3d3"]},
-#	{name: "poly", accent: ["#ffff00"], color: ["0000ff", "#ff0000", "#000000"]}
-#	{"name": "intersex", "color": ["#ffd800", "#7902aa"]},
-#}
+def progress(accents, colors):
+	pass
+
+def demisexual(accents, colors):
+	pass
+
+def polyamory(accents, colors):
+	pass
+
+def intersex(accents, colors):
+	print("\t<div class=\"col col-33\">")
+	print("\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 777 480\" height=\"100%\">")
+	print("\t\t\t<path fill=" + colors[0] + " d=\"M0 0h777v480H0z\"/>")
+	print("\t\t\t<circle cx=\"50%\" cy=\"50%\" r=\"137.6px\" stroke=\"" + accents[0] + "\" stroke-width=\"40px\" fill=\"" + colors[0] + "\" />")
+	print("\t\t</svg>")
+	print("\t</div>")
+
+other_flags = [
+	{"name": "intersex", "accent": ["#7902aa"], "color": ["#ffd800"], "fn": intersex},
+	{"name": "progress rainbow",  "accent": ["#613915", "#000000", "#ffafc7", "#73d7ee", "#ffffff"], "color": ["#e50000", "#ff8d00", "#ffee00", "#028121", "#004cff", "#770088"], "fn": progress},
+	{"name": "demisexual", "accent": ["#000000"], "color": ["#ffffff", "#6e0071", "#d3d3d3"], "fn": demisexual},
+	{"name": "polyamory", "accent": ["#ffff00"], "color": ["0000ff", "#ff0000", "#000000"], "fn": polyamory},
+]
 
 bar_flags = [
 	{"name": "classic rainbow",  "color": ["#e50000", "#ff8d00", "#ffee00", "#028121", "#004cff", "#770088"]},
@@ -32,40 +49,86 @@ bar_flags = [
 
 lineheight = ["", "25rem", "12.5rem", "8.33rem", "6.25rem", "5rem", "4.167rem", "3.57rem", "3.125rem"]
 
+def color_row(col):
+	# Hex div
+	print("\t<div class=\"col col-10 col-offset-10\" style=\"line-height: " + lineheight[len(col)] + ";\">")
+	for e in col:
+		print("\t\t<div class=\"row pride-color\" style=\"--col: " + e + "\">" + e + "</div>")
+	print("\t</div>")
+	# RGB div
+	print("\t<div class=\"col col-20 col-offset-5\" style=\"line-height: " + lineheight[len(col)] + ";\">")
+	for e in col:
+		print("\t\t<div class=\"row pride-color\" style=\"--col: " + e + "\">" + str(tuple(int(e.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))) + "</div>")
+	print("\t</div>")
+
+def bar_flag(col):
+	# svg
+	print("\t<div class=\"col col-33\">")
+	print("\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 777 480\" height=\"100%\">")
+	dec = 480/(len(col))
+	h = 480
+	for e in reversed(col): 
+		print("\t\t\t<path fill=" + e + " d=\"M0 0h777v" + str(int(h)) + "H0z\"/>")
+		h -= dec
+	print("\t\t</svg>")
+	print("\t</div>")
+
 if __name__ == '__main__':
 	for flag in bar_flags:
 		flagname = flag["name"]
 		colors = flag["color"]
+		
 		# title
 		print("<h3>" + flagname + "</h3>")
+
 		# container
 		print("<div class=\"row\"  style=\"height: 25rem;\">")
+		
 		# svg
-		print("\t<div class=\"col col-33\">")
-		print("\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 777 480\" height=\"100%\">")
-		dec = 480/(len(colors))
-		h = 480
-		for e in reversed(colors): 
-			print("\t\t\t<path fill=" + e + " d=\"M0 0h777v" + str(int(h)) + "H0z\"/>")
-			h -= dec
-		print("\t\t</svg>")
-		print("\t</div>")
-		# Hex div
-		print("\t<div class=\"col col-10 col-offset-10\" style=\"line-height: " + lineheight[len(colors)] + ";\">")
-		for e in colors:
-			print("\t\t<div class=\"row pride-color\" style=\"--col: " + e + "\">" + e + "</div>")
-		print("\t</div>")
-		# RGB div
-		print("\t<div class=\"col col-20 col-offset-5\" style=\"line-height: " + lineheight[len(colors)] + ";\">")
-		for e in colors:
-			print("\t\t<div class=\"row pride-color\" style=\"--col: " + e + "\">" + str(tuple(int(e.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))) + "</div>")
-		print("\t</div>")
+		bar_flag(colors)
+
+		# colors
+		color_row(colors)
+
 		# Dimensions
 		#print("\t<div class=\"col col-offset-10\">")
 		#print("\t\tDIMENSIONS")
 		#print("\t</div>")
+		
 		# end container
 		print("</div>")
+		
+		# delim
+		print("<br>")
+		print("<hr class=\"delim\">")
+
+	for flag in other_flags:
+		print(flag)
+		flagname = flag["name"]
+		colors = flag["color"]
+		accents = flag["accent"]
+		
+		# title
+		print("<h3>" + flagname + "</h3>")
+
+		# container
+		print("<div class=\"row\"  style=\"height: 25rem;\">")
+		
+		# svg
+		#bar_flag(colors)
+		flag["fn"](accents, colors)
+
+		# colors
+		color_row(accents + colors)
+
+		# Dimensions
+		#print("\t<div class=\"col col-offset-10\">")
+		#print("\t\tDIMENSIONS")
+		#print("\t</div>")
+		
+		# end container
+		print("</div>")
+		
 		# delim
 		print("<br>")
 		print("<hr class=\"delim\">")
