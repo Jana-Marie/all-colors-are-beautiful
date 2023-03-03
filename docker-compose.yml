@@ -17,12 +17,6 @@ services:
           traefik.frontend.rule: "Host:acab.haj.gf"
           traefik.frontend.redirect.entryPoint: "https"
           traefik.docker.network: web
-    php-fpm:
-        image: php:8-fpm
-        networks:
-          - internal
-        volumes:
-          - ./code:/var/www/html
 
 networks:
   web:
