@@ -1,15 +1,14 @@
-version: "3"
+version: "3.7"
 services:
     web:
-        image: nginx:latest
+        image: cupcakearmy/static
         ports:
           - "5083:80"
         networks:
           - web
-          - internal
         volumes:
-          - ./static:/usr/share/nginx/html
-        restart: always
+          - ./static:/srv:ro
+        restart: unless-stopped
         labels:
           traefik.enable: true
           traefik.port: 5083
