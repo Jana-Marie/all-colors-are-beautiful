@@ -65,12 +65,12 @@ def demisexual(accents, colors):
 
 def color_row(col):
 	# Hex div
-	print('\t<div class="col col-10 col-offset-10" style="line-height: ' + lineheight[len(col)] + ';">')
+	print('\t<div class="col col-10 col-offset-15" style="line-height: ' + lineheight[len(col)] + ';">')
 	for e in col:
 		print('\t\t<div class="row pride-color" style="--col: ' + e + '">' + e + '</div>')
 	print('\t</div>')
 	# RGB div
-	print('\t<div class="col col-20 col-offset-5" style="line-height: ' + lineheight[len(col)] + ';">')
+	print('\t<div class="col col-20 col-offset-10" style="line-height: ' + lineheight[len(col)] + ';">')
 	for e in col:
 		print('\t\t<div class="row pride-color" style="--col: ' + e + '">' + str(tuple(int(e.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))) + '</div>')
 	print('\t</div>')
